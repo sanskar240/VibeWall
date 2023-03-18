@@ -27,11 +27,8 @@ function App() {
         limit: 100,
         offset: 0,
         sortBy: { column: "name", order: "asc"}
-      });   // Cooper/
-      // data: [ image1, image2, image3 ]
-      // image1: { name: "subscribeToCooperCodes.png" }
-
-      // to load image1: CDNURL.com/subscribeToCooperCodes.png -> hosted image
+      });   
+     
 
       if(data !== null) {
         setImages(data);
@@ -67,15 +64,11 @@ function App() {
   async function uploadImage(e) {
     let file = e.target.files[0];
 
-    // userid: Cooper
-    // Cooper/
-    // Cooper/myNameOfImage.png
-    // Lindsay/myNameOfImage.png
 
     const { data, error } = await supabase
       .storage
       .from('images')
-      .upload(user.id + "/" + uuidv4(), file)  // Cooper/ASDFASDFASDF uuid, taylorSwift.png -> taylorSwift.png
+      .upload(user.id + "/" + uuidv4(), file)  
 
     if(data) {
       getImages();
@@ -100,10 +93,9 @@ function App() {
 
   return (
     <Container align="center" className="container-sm mt-4">
-      {/* 
-        if they dont exist: show them the login page
-        if the user exists: show them the images / upload images page
-      */}
+       
+        
+      }
       { user === null ? 
         <>
           <h1>Welcome to ImageWall</h1>
